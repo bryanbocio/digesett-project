@@ -17,8 +17,18 @@ export const signup= async (req:Request, res:Response)=>{
    res.header('auth-token',token).json(savedUser);
 
 }
-export const signin=(req:Request, res:Response)=>{
-    res.send('signin')
+export const signin=async (req:Request, res:Response)=>{
+
+    const user=  await User.findOne({email:req.body.email});
+    if(!user)return res.status(400).json('email or password wrong');
+
+    const correctPassword:boolean=await user.validatePassword(req.body.password);
+    if(!correctPassword) return res.status(400).json('Password is wrong');
+
+    const token:string=jwt.sign({_id: user._id}, process.env.SECRECT_TOKEN || 'SECRECT_TOKEN',{
+        expiresIn: 60 * 60 * 24
+    });
+    res.header('auth-token',token).json(user);
 }
 export const profile=(req:Request, res:Response)=>{
     res.send('profile')
