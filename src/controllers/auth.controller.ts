@@ -3,19 +3,19 @@ import User, {IUser} from "../models/User";
 import jwt from "jsonwebtoken";
 
 export const signup= async (req:Request, res:Response)=>{
-    
-
     //saving new user
    const user:IUser= new User({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
     });
+   user.password=await user.encryptPassword(user.password);
    const savedUser=await user.save();
 
    //creating a token
    const token:string=jwt.sign({_id:savedUser._id},process.env.SECRECT_TOKEN || 'SECRECT_TOKEN');
-   res.json(token);
+   res.header('auth-token',token).json(savedUser);
+
 }
 export const signin=(req:Request, res:Response)=>{
     res.send('signin')
