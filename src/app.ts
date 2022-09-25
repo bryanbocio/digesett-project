@@ -12,10 +12,11 @@ app.set('port', 3000);
 
 //middlewares
 app.use(morgan('dev'));
+app.use(express.json())
 
 
 //routes
-app.use(authRoutes);
+app.use('/api/auth',authRoutes);
 
 
 export default app;
