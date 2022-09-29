@@ -41,20 +41,10 @@ export async function deleteTafficFine(req:Request, res:Response): Promise<Respo
 }
 
 export async function updateTrafficFine(req:Request, res:Response):Promise<Response> {
-  
-    const {id}=req.params;
-    const {driverIdCard, idDriverCar, reasonFine, comment, latituded, longitude}=req.body;
+
+   const trafficFinetoUpdated=  await updateATrafficFineObject(req,res);
     
-    const trafficFinetoUpdated=await trafficFine.findByIdAndUpdate(id,{
-        driverIdCard,
-        idDriverCar,
-        reasonFine,
-        comment,
-        latituded,
-        longitude,
-    });
-    
-    if(!trafficFinetoUpdated) return res.status(400).json({message:'the traffic fine could not be update'})
+   if(!trafficFinetoUpdated) return res.status(400).json({message:'the traffic fine could not be update'})
    return res.json({message:'Traffic fine updated sucessfully', trafficFinetoUpdated});    
 };
 
