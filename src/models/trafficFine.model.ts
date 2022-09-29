@@ -7,7 +7,7 @@ const trafficFine=new Schema({
         min: 11,
 
     },
-    idDriverCard:{
+    idDriverCar:{
         type : String,
         required :true,
         min: 7,
@@ -29,9 +29,9 @@ const trafficFine=new Schema({
     },
 });
 
-interface ITrafficFine extends Document{
+export interface ITrafficFine extends Document{
     driverIdCard:string;
-    idDriverCard:string;
+    idDriverCar:string;
     imageAboutPath:string;
     reasonFine:string;
     comment:string;
