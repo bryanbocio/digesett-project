@@ -24,9 +24,7 @@ export async function getAllTrafficFines(req:Request, res:Response):Promise<Resp
 export async function getAOnlyTrafficFine(req:Request, res:Response):Promise<Response>{
    const {id}= req.params;
    const trafficFineFound=await trafficFine.findById(id);
-    
    if(!trafficFineFound)return res.status(400).json({message:'the traffic fine could not found'});
-
    return res.json(trafficFineFound);
 }
 
@@ -36,12 +34,30 @@ export async function deleteTafficFine(req:Request, res:Response): Promise<Respo
     if(trafficFineEliminated){
         await fs.unlink(path.resolve(trafficFineEliminated.imageAboutPath));
     }
-
     return res.json({
         message: 'Traffic fine has been eliminate',
         trafficFineEliminated,
     });
 }
+
+export async function updateTrafficFine(req:Request, res:Response):Promise<Response> {
+  
+    const {id}=req.params;
+    const {driverIdCard, idDriverCar, reasonFine, comment, latituded, longitude}=req.body;
+    
+    const trafficFinetoUpdated=await trafficFine.findByIdAndUpdate(id,{
+        driverIdCard,
+        idDriverCar,
+        reasonFine,
+        comment,
+        latituded,
+        longitude,
+    });
+    
+    if(!trafficFinetoUpdated) return res.status(400).json({message:'the traffic fine could not be update'})
+   return res.json({message:'Traffic fine updated sucessfully', trafficFinetoUpdated});    
+};
+
 
 function createTrafficFineObject(req:Request){
     const {driverIdCard, idDriverCar, reasonFine, comment, latituded, longitude}=req.body;
@@ -56,5 +72,22 @@ function createTrafficFineObject(req:Request){
         longitude: longitude,
     };
     return newTrafficFine; 
-
 }
+
+async function updateATrafficFineObject(req:Request, res:Response){
+    const {id}=req.params;
+    const {driverIdCard, idDriverCar, reasonFine, comment, latituded, longitude}=req.body;
+    
+    const trafficFinetoUpdated=await trafficFine.findByIdAndUpdate(id,{
+        driverIdCard,
+        idDriverCar,
+        reasonFine,
+        comment,
+        latituded,
+        longitude,
+    });
+    
+    if(!trafficFinetoUpdated) return res.status(400).json({message:'the traffic fine could not be update'})
+    return trafficFinetoUpdated;
+}
+
