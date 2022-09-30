@@ -27,6 +27,10 @@ const trafficFine=new Schema({
     longitude:{
         type : String,
     },
+    dateCreated:{
+        type:Date,
+        
+    }
 });
 
 export interface ITrafficFine extends Document{
@@ -37,6 +41,7 @@ export interface ITrafficFine extends Document{
     comment:string;
     latituded:string;
     longitude:string;
+    dateCreated:Date;
 };
 
 

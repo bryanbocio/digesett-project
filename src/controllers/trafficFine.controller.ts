@@ -50,7 +50,7 @@ export async function updateTrafficFine(req:Request, res:Response):Promise<Respo
 
 
 function createTrafficFineObject(req:Request){
-    const {driverIdCard, idDriverCar, reasonFine, comment, latituded, longitude}=req.body;
+    const {driverIdCard, idDriverCar,reasonFine, comment, latituded, longitude}=req.body;
   
     const newTrafficFine={
         driverIdCard: driverIdCard,
@@ -60,6 +60,7 @@ function createTrafficFineObject(req:Request){
         comment: comment,
         latituded: latituded,
         longitude: longitude,
+        dateCreated: new Date().getTime()
     };
     return newTrafficFine; 
 }
