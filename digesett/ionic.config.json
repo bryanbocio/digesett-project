@@ -1,7 +1,0 @@
-{
-  "name": "digesett",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
