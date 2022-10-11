@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "digesett",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
