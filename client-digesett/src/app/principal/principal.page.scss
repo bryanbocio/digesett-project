@@ -1,0 +1,47 @@
+
+
+.toolbar{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    --background: #006E2A;
+    --color:white;
+    font-weight: bold;
+    font-family: 'Inconsolata';
+
+}
+
+.start-row{
+    font-family: 'Inconsolata';
+}
+
+ion-card{
+    margin: 0.5rem auto ;
+    box-shadow: rgba(18, 2, 2, 0.874) 0px 3px 8px;
+    --background:#00AC42;
+    --color:white;
+    .information-card{
+        background-color: #019A3C;
+    }
+
+    
+
+    .btn-details-div{
+        
+        margin: auto;
+        .btn-details{
+            --background:#058A38;
+            --border:50px;
+        }
+    }
+}
+
+.hr {
+    border-bottom: 1px solid #006E2A;
+    margin: 10px 0;
+    width: 5.4rem;
+  }
+
+  .card-hr{
+    border-bottom: 1px solid #006e2a2a;
+    margin: 0;
+    width: 100%;;
+  }
