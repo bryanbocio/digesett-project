@@ -14,6 +14,7 @@
 }
 
 ion-card{
+    width: 310px;
     margin: 0.5rem auto ;
     box-shadow: rgba(18, 2, 2, 0.874) 0px 3px 8px;
     --background:#00AC42;
@@ -33,7 +34,10 @@ ion-card{
         }
     }
 }
-
+.logo{
+    width: 2rem;
+    height: 2rem;
+}
 .hr {
     border-bottom: 1px solid #006E2A;
     margin: 10px 0;
@@ -41,7 +45,7 @@ ion-card{
   }
 
   .card-hr{
-    border-bottom: 1px solid #006e2a2a;
+    border-bottom: 1px solid #006e2a62;
     margin: 0;
     width: 100%;;
   }
