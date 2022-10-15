@@ -35,8 +35,8 @@ ion-card{
     }
 }
 .logo{
-    width: 2rem;
-    height: 2rem;
+    width: 30px;
+    margin: auto;
 }
 .hr {
     border-bottom: 1px solid #006E2A;
@@ -48,4 +48,8 @@ ion-card{
     border-bottom: 1px solid #006e2a62;
     margin: 0;
     width: 100%;;
+  }
+
+  .name-toolbar{
+   margin-left:6.9rem   ;
   }
