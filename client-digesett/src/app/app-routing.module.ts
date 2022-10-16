@@ -20,6 +20,11 @@ const routes: Routes = [
     path: 'principal',
     loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalPageModule)
   },
+  {
+    path: 'traffic-fine-details',
+    loadChildren: () => import('./traffic-fine-details/traffic-fine-details.module').then( m => m.TrafficFineDetailsPageModule)
+  },
+  
 ];
 
 @NgModule({

@@ -23,8 +23,6 @@ ion-card{
         background-color: #019A3C;
     }
 
-    
-
     .btn-details-div{
         
         margin: auto;
@@ -51,5 +49,26 @@ ion-card{
   }
 
   .name-toolbar{
-   margin-left:6.9rem   ;
-  }
+    text-align: center;
+}
+
+.sidebar-toolbar{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    --background: #006E2A;
+    --color:white;
+    font-weight: bold;
+    font-family: 'Inconsolata';
+}
+
+.title-sidebar{
+    text-align: center;
+}
+
+.ion-content-menu{
+    --background:#00AC42;
+
+}
+
+.ion-item-menu{
+    --background:#00AC42;
+}
